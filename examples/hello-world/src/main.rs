@@ -160,6 +160,15 @@ fn main() {
     println!("{}, {}, {} (function)", minn, maxn, avgn);
 
     println!("---------- ---------- ---------- ----------");
+
+    let mut message = String::from("Hello");
+    println!("{}",message);
+    message.push_str(", world!");
+    println!("{}", message);
+
+
+    println!("---------- ---------- ---------- ----------");
+
 }
 
 fn statistics(data: &[i32]) -> (i32, i32, f64) {
@@ -175,7 +184,9 @@ fn statistics(data: &[i32]) -> (i32, i32, f64) {
         }
         avg += *x as f64;
     }
+
     avg /= data.len() as f64;
+
     return (min, max, avg);
 }
 
