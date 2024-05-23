@@ -1,2 +1,3 @@
-# rust-learn
-My attempts at learning Rust 
+# haskell-learn
+
+My attempts at learning Haskell
