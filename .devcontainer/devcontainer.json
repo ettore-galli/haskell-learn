@@ -1,0 +1,15 @@
+{
+	"name": "haskell-dev",
+	"dockerFile": "../ci/Dockerfile",
+	"build": {
+		"target": "haskell-dev"
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"haskell.haskell"
+			]
+		}
+	}
+}
