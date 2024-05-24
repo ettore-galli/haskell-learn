@@ -1,1 +1,2 @@
 -- Example
+main = putStrLn "Hello"
