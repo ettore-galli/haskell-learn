@@ -1,3 +1,5 @@
+module Cap3 where
+
 import Data.ByteString.Lazy (compareLength)
 import Data.List
 import Debug.Trace (trace)
