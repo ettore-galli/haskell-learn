@@ -1,4 +1,4 @@
-# haskell-learn
+v# haskell-learn
 
 My attempts at learning Haskell
 
@@ -63,3 +63,13 @@ Configurazione HLS (per file hie)
 ## Tutorial cabal
 
 <https://www.youtube.com/watch?v=-DHEmrKhjCM>
+
+## Tutorial scrivi applicazione blog (per capitolo test)
+
+<https://learn-haskell.blog/08-testing.html>
+
+## Problema hspec-discover
+
+<https://github.com/haskell/haskell-language-server/pull/177/files>
+
+ln -s  /home/vscode/.cabal/store/ghc-9.4.8/hspec-discover-2.11.9-e-hspec-discover-fcdb61dfabc4e9b7bbea25a3c5f12afdd42a675c06f09570e3c6c7fde5da2858/bin/hspec-discover  /home/vscode/.ghcup/bin/hspec-discover
