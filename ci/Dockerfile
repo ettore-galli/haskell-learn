@@ -31,7 +31,3 @@ RUN \
 ENV GHCUP_DIR="$HOME/.ghcup"
 ENV GHCUP_BIN="$HOME/.ghcup/bin"
 ENV PATH="$GHCUP_BIN:$PATH"
-
-# RUN  echo 'export PATH="$GHCUP_BIN:$PATH"' >> /etc/profile.d/ghcup.sh
-
-
