@@ -73,3 +73,10 @@ Configurazione HLS (per file hie)
 <https://github.com/haskell/haskell-language-server/pull/177/files>
 
 ln -s  /home/vscode/.cabal/store/ghc-9.4.8/hspec-discover-2.11.9-e-hspec-discover-fcdb61dfabc4e9b7bbea25a3c5f12afdd42a675c06f09570e3c6c7fde5da2858/bin/hspec-discover  /home/vscode/.ghcup/bin/hspec-discover
+
+
+## ghci utf-8
+
+Vedere se si può aggiustare l'immagine Docker 
+
+LANG=en_US.UTF-8 ghci
