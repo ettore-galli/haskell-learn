@@ -106,12 +106,12 @@ example = [(1, 2), (2, 3), (3, 2), (4, 3), (4, 5)]
 (%%%) :: (a -> b) -> a -> b
 (%%%) f a = f a
 
-myfoldl :: (a -> b -> b) -> b -> [a] -> b
+myfoldl :: (b -> a -> b) -> b -> [a] -> b
 myfoldl _ acc [] = acc
-myfoldl f acc (x : xs) = myfoldl f (f x acc) xs
+myfoldl f acc (x : xs) = myfoldl f (f acc x) xs
 
--- myfoldl (\cur acc -> acc ++ cur) "-" ["a", "b", "c"]
--- "-abc"
+-- myfoldl (\acc cur -> acc++[cur]) ["-"] ["a", "b", "c"]
+-- ["-","a","b","c"]
 
 myfoldr :: (a -> b -> b) -> b -> [a] -> b
 myfoldr _ acc [] = acc
@@ -119,3 +119,47 @@ myfoldr f acc (x : xs) = f x (myfoldr f acc xs)
 
 -- myfoldr (\cur acc -> acc ++ cur) "-" ["a", "b", "c"]
 -- "-cba"
+
+inverti :: (Ord a) => [a] -> [a]
+inverti = foldl (\acc elem -> elem : acc) []
+
+inverti' :: (Ord a) => [a] -> [a]
+inverti' [] = []
+inverti' [a] = [a]
+inverti' [a, b] = [b, a]
+inverti' (x : xs) = inverti' xs ++ [x]
+
+inverti'' :: (Ord a) => [a] -> [a]
+inverti'' xs = runinv [] xs
+  where
+    runinv buffer [] = buffer
+    runinv buffer (x : xs) = runinv (x : buffer) xs
+
+prefixes_ :: [a] -> ([a], [[a]])
+prefixes_ [] = ([], [])
+prefixes_ xs = foldl accprefix ([], []) xs
+  where
+    accprefix acc x =
+      let (prefix, res) = acc
+       in (x : prefix, prefix : snd acc)
+
+doPrefixes1 :: [a] -> ([a], [[a]])
+doPrefixes1 [] = ([], [])
+doPrefixes1 xs = foldr accprefix ([], []) xs
+  where
+    accprefix x acc =
+      let (p, res) = acc
+          prefix = x : p
+       in (prefix, prefix : snd acc)
+
+doPrefixes :: [a] -> ([a], [[a]])
+doPrefixes [] = ([], [])
+doPrefixes xs = foldl accprefix ([], []) xs
+  where
+    accprefix acc x =
+      let (p, res) = acc
+          prefix = p ++ [x]
+       in (prefix, prefix : snd acc)
+
+prefixes :: [a] -> [[a]]
+prefixes list = foldl (\acc x -> x : acc) [] (snd $ doPrefixes list)
